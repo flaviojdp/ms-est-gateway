@@ -1,0 +1,19 @@
+services:
+  api-est-gateway:
+    build: .
+    image: api-est-gateway:0.0.1
+    container_name: api-est-gateway
+    ports:
+      - "9002:9002"
+    networks:
+      - redediscovery
+      - rederabbitmq
+      - redekeycloak
+
+networks:
+  redediscovery:
+    external: true
+  rederabbitmq:
+    external: true
+  redekeycloak:
+    external: true
