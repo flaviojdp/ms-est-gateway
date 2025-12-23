@@ -2,6 +2,11 @@ services:
   api-est-gateway:
     build: .
     image: api-est-gateway:0.0.1
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - EUREKA_SERVER=api-est-discovery
+      - KEYCLOAK_SERVER=keycloak-prod
+      - KEYCLOAK_SERVER_PORT=8080
     container_name: api-est-gateway
     ports:
       - "9002:9002"

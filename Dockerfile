@@ -9,5 +9,10 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:21-jdk-jammy
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
+
+ARG EUREKA_SERVER=api-est-discovery
+ARG KEYCLOAK_SERVER=keycloak-prod
+ARG KEYCLOAK_SERVER_PORT=8080
+
 EXPOSE 9004
 ENTRYPOINT ["java", "-jar", "app.jar"]
